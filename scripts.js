@@ -18,7 +18,7 @@ function verificaEmailESenha(emailEsenha) {
         return cad.email === emailEsenha.email && cad.senha === emailEsenha.senha;
     });
     return dadosCorretos;
-}   
+}
 
 function limpaCampos() {
     email.value = '';
@@ -52,7 +52,7 @@ function mensagem(texto, tipo) {
         alerta.style.display = 'none';
     }, 5000);
 }
-                            
+
 function validaECadastra(campos, funcao) {
     if (campos.email.trim() === '') {
         mensagem('Insira seu e-mail!', 'atencao');
@@ -65,8 +65,8 @@ function validaECadastra(campos, funcao) {
     } else {
         funcao(campos);
     }
-}  
-                    
+}
+
 function cadastro(campos) {
     if (!verificaExistente(campos)) {
         cadastros.push(campos);
@@ -77,7 +77,7 @@ function cadastro(campos) {
     }
     limpaCampos();
 }
-      
+
 function login(campos) {
     if (verificaExistente(campos)) {
         if (verificaEmailESenha(campos) == false) {
@@ -93,16 +93,15 @@ function login(campos) {
 
 botaoLogin.addEventListener('click', function () {
     const campos = {
-    email: email.value,
-    senha: senha.value
+        email: email.value,
+        senha: senha.value
     };
     validaECadastra(campos, login);
-    });
+});
 botaoCadastro.addEventListener('click', function () {
     const campos = {
-    email: email.value,
-    senha: senha.value
+        email: email.value,
+        senha: senha.value
     };
     validaECadastra(campos, cadastro);
 });
-                                                            
